@@ -18,7 +18,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ## Problemstellungen zum Durchgehen
 
-### 1. Der Server fällt aus
+### 1. Der Server fällt aus (Self Healing, Clustering)
 
 > "Es ist Freitagabend, euer Server stürzt ab. Docker Compose liegt auf genau dieser einen Maschine. Was passiert?"
 
@@ -28,7 +28,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ---
 
-### 2. Der Online-Shop wird im Fernsehen vorgestellt
+### 2. Der Online-Shop wird im Fernsehen vorgestellt (Autoscaling)
 
 > "Eure App wird in einer TV-Sendung erwähnt. Plötzlich kommen 50x so viele Anfragen. Wie skaliert ihr mit Docker Compose?"
 
@@ -40,7 +40,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ---
 
-### 3. Update ohne Downtime
+### 3. Update ohne Downtime (Deployment Rollout)
 
 > "Ihr habt ein Bug-Fix für das Backend. Wie deployed ihr das neue Image, ohne dass Nutzer einen Fehler sehen?"
 
@@ -52,7 +52,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ---
 
-### 4. Wer startet den Container nach einem Crash neu?
+### 4. Wer startet den Container nach einem Crash neu? (Health Checks, Self Healing)
 
 > "Euer Backend hat einen Memory Leak. Nach 2 Stunden geht dem Container der Speicher aus und er stirbt. Was passiert?"
 
@@ -64,7 +64,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ---
 
-### 5. Konfiguration und Geheimnisse
+### 5. Konfiguration und Geheimnisse (Credential Vaults)
 
 > "Euer Backend braucht Datenbankpasswörter. Wo liegen die bei Docker Compose?"
 
@@ -76,7 +76,7 @@ Kurz sammeln lassen (Zuruf oder Whiteboard), dann gezielt nachbohren:
 
 ---
 
-### 6. Mehrere Teams, eine Infrastruktur
+### 6. Mehrere Teams, eine Infrastruktur (Multi-tenancy)
 
 > "Jetzt gibt es nicht nur eure App, sondern auch Team B mit einem Bestellsystem und Team C mit einem Reporting-Tool. Alle sollen auf derselben Infrastruktur laufen. Wie trennt ihr das?"
 

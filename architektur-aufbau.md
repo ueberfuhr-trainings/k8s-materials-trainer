@@ -22,6 +22,19 @@ An die Tafel schreiben: **Worker Node** mit **Container Runtime** und **kubelet*
 
 > **Nachfrage:** "Der kubelet ist wie ein Vorarbeiter auf der Baustelle — er bekommt gesagt 'Starte diesen Container' und macht es. Aber wer sagt ihm das?"
 
+**Tafelbild jetzt:**
+
+```
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
+
 ---
 
 ### Schritt 2 — Wer gibt die Befehle?
@@ -36,6 +49,25 @@ An die Tafel schreiben: **API Server** in der Steuerungszentrale.
 
 > **Zusammenfassung:** "Der API Server ist das Eingangstor. Alles — ob `kubectl`, die Web Console oder interne Komponenten — spricht mit dem API Server."
 
+**Tafelbild jetzt:**
+
+```
+┌───────────── Steuerungszentrale ─────────────┐
+│  ┌────────────┐                               │
+│  │ API Server │                               │
+│  └────────────┘                               │
+└───────────────────────────────────────────────┘
+       │              │              │
+┌──────┴───────┐  ┌───┴──────────┐  ┌┴─────────────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
+
 ---
 
 ### Schritt 3 — Wer entscheidet, auf welchem Node?
@@ -47,6 +79,27 @@ An die Tafel schreiben: **API Server** in der Steuerungszentrale.
 An die Tafel schreiben: **Scheduler** in der Steuerungszentrale.
 
 > **Vertiefung:** "Der Scheduler berücksichtigt: Wie viel CPU/RAM ist frei? Gibt es Regeln, dass bestimmte Pods nicht zusammen laufen dürfen? Braucht der Pod eine GPU?"
+
+**Tafelbild jetzt:** *(der Scheduler hat gerade 3 Pods verteilt)*
+
+```
+┌──────────────── Steuerungszentrale ────────────────┐
+│  ┌────────────┐  ┌───────────┐                      │
+│  │ API Server │  │ Scheduler │                      │
+│  └────────────┘  └───────────┘                      │
+└─────────────────────────────────────────────────────┘
+       │              │              │
+┌──────┴───────┐  ┌───┴──────────┐  ┌┴─────────────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ [Pod]    │ │  │ │ [Pod]    │ │  │ │ [Pod]    │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
 
 ---
 
@@ -65,6 +118,27 @@ An die Tafel schreiben: **Controller Manager** in der Steuerungszentrale.
 >
 > "Das ist das Herzstück von Kubernetes: **deklarativ, nicht imperativ.** Ihr sagt nicht 'Starte einen Container', sondern 'Ich will, dass 3 laufen.' Kubernetes kümmert sich ums Wie."
 
+**Tafelbild jetzt:**
+
+```
+┌────────────────────── Steuerungszentrale ──────────────────────┐
+│  ┌────────────┐  ┌───────────┐  ┌────────────────────┐         │
+│  │ API Server │  │ Scheduler │  │ Controller Manager │         │
+│  └────────────┘  └───────────┘  └────────────────────┘         │
+└─────────────────────────────────────────────────────────────────┘
+       │                  │                  │
+┌──────┴───────┐  ┌───────┴──────┐  ┌────────┴─────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ [Pod]    │ │  │ │ [Pod]    │ │  │ │ [Pod]    │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
+
 ---
 
 ### Schritt 5 — Wo wird der gewünschte Zustand gespeichert?
@@ -76,6 +150,30 @@ An die Tafel schreiben: **Controller Manager** in der Steuerungszentrale.
 An die Tafel schreiben: **etcd** in der Steuerungszentrale.
 
 > **Erklärung:** "etcd ist eine verteilte Key-Value-Datenbank. Hier steht alles drin: Welche Deployments gibt es, welche Pods sollen laufen, welche ConfigMaps existieren. Es ist das Gedächtnis des Clusters."
+
+**Tafelbild jetzt:** *(etcd als zweite Reihe in der Steuerungszentrale)*
+
+```
+┌────────────────────── Steuerungszentrale ──────────────────────┐
+│  ┌────────────┐  ┌───────────┐  ┌────────────────────┐         │
+│  │ API Server │  │ Scheduler │  │ Controller Manager │         │
+│  └────────────┘  └───────────┘  └────────────────────┘         │
+│                  ┌──────┐                                       │
+│                  │ etcd │                                       │
+│                  └──────┘                                       │
+└─────────────────────────────────────────────────────────────────┘
+       │                  │                  │
+┌──────┴───────┐  ┌───────┴──────┐  ┌────────┴─────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ [Pod]    │ │  │ │ [Pod]    │ │  │ │ [Pod]    │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+```
 
 ---
 
@@ -91,6 +189,33 @@ An die Tafel schreiben: **kube-proxy** auf jedem Worker Node.
 
 > **Erklärung:** "Kubernetes hat Services — stabile Adressen mit DNS-Namen. Der kube-proxy auf jedem Node sorgt dafür, dass Anfragen an den Service bei den richtigen Pods ankommen."
 
+**Tafelbild jetzt:** *(kube-proxy je Node; gestrichelte Linie = Service-Verkehr zwischen Pods)*
+
+```
+┌────────────────────── Steuerungszentrale ──────────────────────┐
+│  ┌────────────┐  ┌───────────┐  ┌────────────────────┐         │
+│  │ API Server │  │ Scheduler │  │ Controller Manager │         │
+│  └────────────┘  └───────────┘  └────────────────────┘         │
+│                  ┌──────┐                                       │
+│                  │ etcd │                                       │
+│                  └──────┘                                       │
+└─────────────────────────────────────────────────────────────────┘
+       │                  │                  │
+┌──────┴───────┐  ┌───────┴──────┐  ┌────────┴─────┐
+│  Node        │  │  Node        │  │  Node        │
+│ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │
+│ │ kubelet  │ │  │ │ kubelet  │ │  │ │ kubelet  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │kube-proxy│ │  │ │kube-proxy│ │  │ │kube-proxy│ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ Runtime  │ │  │ │ Runtime  │ │  │ │ Runtime  │ │
+│ ├──────────┤ │  │ ├──────────┤ │  │ ├──────────┤ │
+│ │ [Pod] ···│·····│·[Pod] ····│·····│·[Pod]    │ │
+│ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │
+└──────────────┘  └──────────────┘  └──────────────┘
+                      (Service: stabile Adresse → aktuelle Pods)
+```
+
 ---
 
 ### Schritt 7 — Das Gesamtbild benennen
@@ -104,6 +229,8 @@ Jetzt die Bereiche einrahmen und beschriften:
 - Das Ganze zusammen: **Cluster**
 
 > "Das ist die Kubernetes-Architektur. Ihr habt sie gerade selbst hergeleitet."
+
+**Tafelbild jetzt (Endzustand):** siehe die eingerahmte und beschriftete Skizze unter [Tafelbild-Skizze](#tafelbild-skizze) — jetzt nur noch die beiden Bereiche einrahmen (**Control Plane** / **Worker Nodes**) und das Ganze als **Cluster** benennen.
 
 ---
 

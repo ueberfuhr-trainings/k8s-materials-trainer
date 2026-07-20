@@ -14,23 +14,23 @@ Statt für jedes Kubernetes-Konzept eine eigene Analogie zu erfinden, nutzen wir
 
 ### Überblick
 
-| Kubernetes-Konzept     | Restaurant-Analogie                                    |
-|------------------------|--------------------------------------------------------|
-| **Cluster**            | Das gesamte Restaurant (Gebäude, Küche, Personal)      |
-| **Control Plane**      | Die Restaurantleitung (Büro, nicht in der Küche)       |
-| **API Server**         | Die Tür zum Büro — alle Anfragen gehen hierüber        |
-| **Scheduler**          | Der Restaurantleiter, der Bestellungen an freie Köche verteilt |
-| **Controller Manager** | Der Manager, der durchzählt: "Stehen wirklich 3 Portionen bereit?" |
-| **etcd**               | Das Bestellbuch — hier steht alles drin, was bereitstehen soll |
-| **Worker Node**        | Ein Küchenarbeitsplatz mit Herd, Schneidebrett etc.    |
-| **Pod**                | Ein Tablett mit einem fertigen Gericht (oder Menü)     |
-| **Container**          | Eine einzelne Komponente auf dem Tablett (Hauptgang, Beilage) |
-| **Deployment**         | Das Rezept im Kochbuch inkl. "Davon immer 3 Portionen bereithalten" |
-| **ReplicaSet**         | Der Küchenchef, der zählt: "3 Tabletts bereit? Nein? Nachmachen!" |
-| **ConfigMap**          | Die Tageskarte an der Wand — für alle sichtbar, leicht änderbar |
-| **Secret**             | Das Geheimrezept im Tresor — nur der Küchenchef hat den Schlüssel |
-| **Volume**             | Der Vorratsschrank — bleibt stehen, auch wenn der Koch Feierabend macht |
-| **Namespace / Project**| Separate Abteilungen: "Küche Italienisch", "Küche Asiatisch" |
+| Kubernetes-Konzept      | Restaurant-Analogie                                                     |
+|-------------------------|-------------------------------------------------------------------------|
+| **Cluster**             | Das gesamte Restaurant (Gebäude, Küche, Personal)                       |
+| **Control Plane**       | Die Restaurantleitung (Büro, nicht in der Küche)                        |
+| **API Server**          | Die Tür zum Büro — alle Anfragen gehen hierüber                         |
+| **Scheduler**           | Der Restaurantleiter, der Bestellungen an freie Köche verteilt          |
+| **Controller Manager**  | Der Manager, der durchzählt: "Stehen wirklich 3 Portionen bereit?"      |
+| **etcd**                | Das Bestellbuch — hier steht alles drin, was bereitstehen soll          |
+| **Worker Node**         | Ein Küchenarbeitsplatz mit Herd, Schneidebrett etc.                     |
+| **Pod**                 | Ein Tablett mit einem fertigen Gericht (oder Menü)                      |
+| **Container**           | Eine einzelne Komponente auf dem Tablett (Hauptgang, Beilage)           |
+| **Deployment**          | Das Rezept im Kochbuch inkl. "Davon immer 3 Portionen bereithalten"     |
+| **ReplicaSet**          | Der Küchenchef, der zählt: "3 Tabletts bereit? Nein? Nachmachen!"       |
+| **ConfigMap**           | Die Tageskarte an der Wand — für alle sichtbar, leicht änderbar         |
+| **Secret**              | Das Geheimrezept im Tresor — nur der Küchenchef hat den Schlüssel       |
+| **Volume**              | Der Vorratsschrank — bleibt stehen, auch wenn der Koch Feierabend macht |
+| **Namespace / Project** | Separate Abteilungen: "Küche Italienisch", "Küche Asiatisch"            |
 
 ### Im Kurs verwenden
 
