@@ -35,20 +35,26 @@
 | Zeit          | Dauer  | Typ       | Inhalt                                                                                                                                                                                                                                                                               |
 |---------------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 09:00 – 09:15 | 15 min | Reflexion | **[Kreuzworträtsel Tag 1](https://ueberfuhr-trainings.github.io/k8s-materials/reflections/crossword-tag1.html)** — spielerische Wiederholung, gemeinsam auflösen |
-| 09:15 – 09:30 | 15 min | Warm-up   | *(Optional)* [Analogien](analogien.md) (Restaurant-Küche) als roten Faden einführen; offene Fragen & Reflexionsfragen aus Tag 1 besprechen |
+| 09:15 – 09:30 | 15 min | Warm-up   | Offene Fragen & Reflexionsfragen aus Tag 1 besprechen |
 | 09:30 – 09:45 | 15 min | Theorie   | **PostgreSQL auf Kubernetes** — Best Practices, Operatoren |
-| 09:45 – 10:15 | 30 min | Übung     | **Übung 4: PostgreSQL-Datenbank** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/04-postgresql.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/04-postgresql.html)) — Secrets, Init-SQL; anforderungsbasiert, [Musterlösung](musterloesung-uebung4-postgresql.md) |
-| 10:15 – 10:30 | 15 min | Pause     |  |
-| 10:30 – 11:00 | 30 min | Übung     | **Übung 5: Backend auf PostgreSQL** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/05-backend-postgresql.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/05-backend-postgresql.html)) — Service, Service Discovery, DNS |
-| 11:00 – 11:30 | 30 min | Übung     | **Übung 6: Persistent Volumes** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/06-persistent-volumes.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/06-persistent-volumes.html)) — PVC, StorageClass, Persistenz testen (PGDATA) |
-| 11:30 – 11:45 | 15 min | Theorie   | **Health Checks (Probes)** — Startup, Liveness, Readiness |
-| 11:45 – 12:15 | 30 min | Übung     | **Übung 7: Liveness- und Readiness-Probes** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/07-probes.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/07-probes.html)) — Health Checks für alle Services |
-| 12:15 – 13:15 | 60 min | Pause     | Mittagspause |
-| 13:15 – 13:35 | 20 min | Theorie   | **Helm** — Paketmanagement, Chart-Struktur |
-| 13:35 – 14:20 | 45 min | Übung     | **Übung 8: Helm Charts** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/08-helm-charts.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/08-helm-charts.html)) — Bestehendes Setup als Chart |
-| 14:20 – 14:35 | 15 min | Pause     |  |
-| 14:35 – 15:05 | 30 min | Optional  | **Helm-Deployment via Jenkins** — CI/CD-Automatisierung |
-| 15:05 – 15:55 | 50 min | Retro     | Gesamtrückblick, Feedback, weiterführende Ressourcen |
+| 09:45 – 10:30 | 45 min | Übung     | **Übung 4: PostgreSQL-Datenbank** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/04-postgresql.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/04-postgresql.html)) — Secrets, Init-SQL; anforderungsbasiert, Musterlösung (siehe didaktische Hinweise) |
+| 10:30 – 10:45 | 15 min | Pause     |  |
+| 10:45 – 11:15 | 30 min | Übung     | **Übung 5: Backend auf PostgreSQL** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/05-backend-postgresql.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/05-backend-postgresql.html)) — Service, Service Discovery, DNS |
+| 11:15 – 11:45 | 30 min | Übung     | **Übung 6: Persistent Volumes** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/06-persistent-volumes.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/06-persistent-volumes.html)) — PVC, StorageClass, Persistenz testen (PGDATA) |
+| 11:45 – 12:00 | 15 min | Theorie   | **Health Checks (Probes)** — Startup, Liveness, Readiness |
+| 12:00 – 12:30 | 30 min | Übung     | **Übung 7: Liveness- und Readiness-Probes** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/07-probes.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/07-probes.html)) — Health Checks für alle Services |
+| 12:30 – 13:30 | 60 min | Pause     | Mittagspause |
+| 13:30 – 15:00 | 90 min | Flex      | **Aus dem Backlog nachrücken** — Helm (Theorie + Übung 8), danach Jenkins; sonst Puffer für überziehende Übungen |
+| 15:00 – 15:30 | 30 min | Retro     | Gesamtrückblick, Feedback, weiterführende Ressourcen |
+
+### Backlog (Tag 2)
+
+Diese Themen sind bewusst **nicht** fest eingeplant. Tag 2 ist so getaktet, dass er ohne Zeitdruck aufgeht — statt Übungen zu kürzen oder zu hetzen, wandern Themen bei Bedarf hierher. Im Nachmittags-Flex (nach dem Mittag) rücken sie in der genannten Reihenfolge nach (oben = höchste Priorität).
+
+| Thema | Aufwand | Empfehlung |
+|-------|---------|------------|
+| **Helm** (Theorie + **Übung 8: Helm Charts** ([K8s](https://ueberfuhr-trainings.github.io/k8s-materials/issues/kubernetes/08-helm-charts.html), [OpenShift](https://ueberfuhr-trainings.github.io/k8s-materials/issues/openshift/08-helm-charts.html))) | ~65 min | Paketmanagement & Chart-Struktur. Wichtiges Thema, aber gut abtrennbar. Im Nachmittags-Flex einplanen; bei Zeitnot nur als **15-min-Ausblick** (Chart-Struktur zeigen) statt eigener Übung. |
+| **Helm-Deployment via Jenkins** | ~30 min | CI/CD-Ausblick, für die Grundlagen nicht nötig. Nur bei sehr schneller Gruppe live; sonst als Ausblick zeigen/verweisen. |
 
 ---
 
@@ -69,9 +75,8 @@ Der erste Tag hat einen großen Theorie-Anteil, bevor die Teilnehmer selbst losl
 #### 3. Architektur schrittweise aufbauen
 - Fragenbasierter Aufbau der Cluster-Architektur an der Tafel: **[architektur-aufbau.md](architektur-aufbau.md)**
 
-#### 4. Analogien erst zu Beginn von Tag 2 (optional)
-- Das durchgängige Analogie-Beispiel (Restaurant-Küche) **nicht** am ersten Tag verbrennen, sondern — wenn überhaupt — zu Beginn von Tag 2 als roten Faden einführen: **[analogien.md](analogien.md)**
-- Tag 2 startet stattdessen mit einer spielerischen Reflexion: dem **[Kreuzworträtsel Tag 1](https://ueberfuhr-trainings.github.io/k8s-materials/reflections/crossword-tag1.html)**. Gemeinsam auflösen, das Lösungswort schafft die Brücke zu den Analogien.
+#### 4. Tag 2 mit einer spielerischen Reflexion starten
+- Tag 2 beginnt mit dem **[Kreuzworträtsel Tag 1](https://ueberfuhr-trainings.github.io/k8s-materials/reflections/crossword-tag1.html)** — gemeinsam auflösen, um die Begriffe aus Tag 1 aufzufrischen. Danach offene Fragen und die Reflexionsfragen aus den Übungen besprechen.
 
 #### 5. OpenShift-Block interaktiv gestalten & CLI-Einstieg abtrennen
 - Nicht alle Unterschiede aufzählen, sondern **die Web Console live zeigen** — und die Teilnehmer **selbst darin stöbern lassen**.
@@ -95,6 +100,10 @@ Der erste Tag hat einen großen Theorie-Anteil, bevor die Teilnehmer selbst losl
   - *Alternativen, falls es besser passt:* gemeinsame Besprechung der Übung-1-Ergebnisse, ein Mikro-Quiz oder ein kurzer Rolling-Update-Demo.
 - Das Thema **Konfiguration (12-Factor App, Umgebungsvariablen)** und die zugehörige **Übung 3 (ConfigMaps)** bilden den Abschluss von **Tag 1** (nach Übung 2). Bleibt am Ende von Tag 1 keine Zeit, lassen sie sich als Puffer auf den Beginn von Tag 2 (vor PostgreSQL) verschieben.
 
+#### 9. Übung 4 (PostgreSQL): anforderungsbasiert + Musterlösung
+- Übung 4 gibt bewusst **kein YAML** vor — Secrets und ConfigMaps sollen die Lernenden selbst erschließen. Plane dafür realistisch **~45 min** ein.
+- Eine vollständige **[Musterlösung](https://ueberfuhr-trainings.github.io/k8s-materials/solutions/uebung4-postgresql.html)** (YAML + `oc`/`kubectl`-Befehle, inkl. Zufallspasswort) liegt bereit. Sie ist bewusst **nicht** aus den Übungen oder der Startseite verlinkt — du kannst sie den Lernenden bei Bedarf bereitstellen (zur Kontrolle oder wenn jemand feststeckt).
+
 ---
 
 ### Übungen begleiten
@@ -106,9 +115,10 @@ Der erste Tag hat einen großen Theorie-Anteil, bevor die Teilnehmer selbst losl
 
 ### Zeitpuffer
 
-- Die Zeiten sind knapp kalkuliert. Wenn eine Übung länger dauert, lieber die nächste Theorie kürzen als die Übung abbrechen.
-- Der Helm-Block und der optionale Jenkins-Slot am Nachmittag von Tag 2 sind bewusst als **Puffer** eingeplant. Wenn die Übungen länger dauern, kann Helm als Ausblick in 15 min abgehandelt und Jenkins entfallen.
-- Bei schnellen Gruppen: Helm-Deployment via Jenkins live durchführen oder zusätzliche Szenarien (Skalierung live zeigen, Rolling Update simulieren, Pod löschen und Selbstheilung beobachten).
+- Tag 2 ist bewusst **nicht randvoll** getaktet (Ende ~15:10), damit Übungen überziehen dürfen, ohne dass etwas gehetzt werden muss. Was nicht sicher reinpasst, steht im **Backlog** (Abschnitt am Ende des Tagesplans) statt im festen Plan.
+- **Läuft der Tag rund**, füllt der Nachmittags-Flex die Backlog-Themen in ihrer Reihenfolge (zuerst Helm inkl. Übung 8, dann Jenkins).
+- **Läuft der Tag knapp**, lieber die nächste Theorie kürzen als eine laufende Übung abbrechen — der Puffer am Ende fängt Überziehen auf.
+- Weitere spontane Vertiefungen bei schnellen Gruppen: Skalierung live zeigen, Rolling Update simulieren, Pod löschen und Selbstheilung beobachten.
 
 ---
 
